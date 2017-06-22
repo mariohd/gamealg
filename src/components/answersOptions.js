@@ -5,10 +5,10 @@ class AnswersOptions extends Component {
 	render() {
 		return (
 			<div className="answers options">
-				<AnswerOption value={this.props.values[0]} />
-				<AnswerOption value={this.props.values[1]} />
-				<AnswerOption value={this.props.values[2]} />
-				<AnswerOption value={this.props.values[3]} /> 
+				<AnswerOption onClick={this.props.onAnswerClicked } value={this.props.values[0]} />
+				<AnswerOption onClick={this.props.onAnswerClicked } value={this.props.values[1]} />
+				<AnswerOption onClick={this.props.onAnswerClicked } value={this.props.values[2]} />
+				<AnswerOption onClick={this.props.onAnswerClicked } value={this.props.values[3]} /> 
 			</div>
 		);
 	}
