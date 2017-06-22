@@ -9,10 +9,10 @@ class Question extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			operand_1: 0,
-			operand_2: 0,
+			operand_1: parseInt((Math.random() * 100), 10),
+			operand_2: parseInt((Math.random() * 100), 10),
 			operation: '+',
-			options: []
+			options: [10, 20, 30, 40]
 		};
 	}
 

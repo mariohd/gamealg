@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../css/decimalNumber.css';
 
 class DecimalNumber extends Component {
   render() {

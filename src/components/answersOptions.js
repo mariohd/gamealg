@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import '../css/decimalNumber.css';
+import AnswerOption from './answerOption';
 
 class AnswersOptions extends Component {
 	render() {
 		return (
 			<div className="answers options">
-			1, 2, 3, 4
+				<AnswerOption value={this.props.values[0]} />
+				<AnswerOption value={this.props.values[1]} />
+				<AnswerOption value={this.props.values[2]} />
+				<AnswerOption value={this.props.values[3]} /> 
 			</div>
 		);
 	}
