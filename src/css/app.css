@@ -7,3 +7,25 @@
   width: 100vw;
   margin: 0;
 }
+
+.question {
+  width: 100%;
+  font-family: 'Amatic SC', cursive;
+}
+
+.question, .number, .operator {
+  display: inline-block;
+  font-size: 1.8em;
+  color: #47504D;
+}
+
+.question .body {
+  margin-top: 2em;
+  text-align: center;
+}
+
+.statement .text {
+  margin-top: 2em;
+  text-align: center;
+  font-size: 2.2em;
+}
