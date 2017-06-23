@@ -3,12 +3,11 @@ import AnswerOption from './answerOption';
 
 class AnswersOptions extends Component {
 	render() {
+		let answers = this.props.values.map((value) => <AnswerOption onClick={this.props.onAnswerClicked } value={value } />);
+
 		return (
 			<div className="answers options">
-				<AnswerOption onClick={this.props.onAnswerClicked } value={this.props.values[0]} />
-				<AnswerOption onClick={this.props.onAnswerClicked } value={this.props.values[1]} />
-				<AnswerOption onClick={this.props.onAnswerClicked } value={this.props.values[2]} />
-				<AnswerOption onClick={this.props.onAnswerClicked } value={this.props.values[3]} /> 
+				{answers }
 			</div>
 		);
 	}
