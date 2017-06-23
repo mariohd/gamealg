@@ -8,37 +8,44 @@ class App extends Component {
 		super(props);
 		this.state = {
 			turn: 0,
-			stage: 1,
+			stage: 0,
 			questions: props.questions,
-			history: {1: {}, 2: {}}
+			history: []
 		};
 	}
 
 	nextTurn(answerClicked) {
-		const question = this.state.questions[`${this.state.stage}`][this.state.turn];
+		const question = this.state.questions[this.state.stage][this.state.turn];
+
 		let stage = this.state.stage;
 		let turn = this.state.turn;
-		if (this.state.turn + 1 == this.state.questions[`${this.state.stage}`].length) {
+		let history = this.state.history;
+
+		if (history[this.state.stage] === undefined) {
+			history[this.state.stage] = [];
+		}
+
+		history[this.state.stage][this.state.turn] = answerClicked === question.answer;
+
+		if (this.state.turn + 1 === this.state.questions[this.state.stage].length) {
 			stage = stage + 1;
 			turn = 0;
+			history[stage] = [];
 		} else {
 			turn += 1;
 		}
 
-		let stageHistory = this.state.history[`${this.state.stage}`];
-		stageHistory[this.state.turn] = question.answer === answerClicked;
-
 		this.setState({
 			turn,
 			stage,
-			history: { ...this.state.history, stageHistory}
+			history
 		});
 	}
 
 	createQuestionsComponent() {
 		switch(this.state.stage) {
-			case 1:
-				return this.state.questions['1'].map((question) => 
+			case 0:
+				return this.state.questions[0].map((question) => 
 					<StageOneQuestion operand_1={question.operand_1 }
 								  operand_2={question.operand_2 } 
 								  operation={question.operation }
@@ -46,8 +53,8 @@ class App extends Component {
 								  options={question.options } 
 								  onAnswerClicked={this.nextTurn.bind(this) } />
 				);
-			case 2:
-				return this.state.questions['2'].map((question) => 
+			case 1:
+				return this.state.questions[1].map((question) => 
 					<StageTwoQuestion operand_1={question.operand_1 }
 								  operand_2={question.operand_2 } 
 								  operation={question.operation }
@@ -55,7 +62,6 @@ class App extends Component {
 								  onAnswerClicked={this.nextTurn.bind(this) } />
 				);
 			default:
-				console.log(this.state.history);
 				return [<h1>{JSON.stringify(this.state.history) }</h1>];
 		}
 	}

@@ -69,9 +69,6 @@ const questionsStage2 = [{
 	operation: operations.plus
 }];
 
-const stages = {
-	1: questionsStage1,
-	2: questionsStage2
-}
+const stages = [questionsStage1, questionsStage2];
 
 export default stages;

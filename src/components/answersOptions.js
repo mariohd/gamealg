@@ -3,7 +3,7 @@ import AnswerOption from './answerOption';
 
 class AnswersOptions extends Component {
 	render() {
-		let answers = this.props.values.map((value) => <AnswerOption onClick={this.props.onAnswerClicked } value={value } />);
+		let answers = this.props.values.map((value) => <AnswerOption key={value} onClick={this.props.onAnswerClicked } value={value } />);
 
 		return (
 			<div className="answers options">

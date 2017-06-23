@@ -7,7 +7,7 @@ import AnswersOptions from '../answersOptions';
 class StageOneQuestion extends Component {
 	render() {
 		return (
-			<div className="question">
+			<div className="question one">
 				<Statement text="Responda sobre a afirmação abaixo" />
 				<div className="body">
 					<DecimalNumber value={this.props.operand_1 } />
