@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Question from './question';
+import StageTwoQuestion from './stageTwo/stageTwoQuestion';
 import '../css/app.css';
 
 class App extends Component {
@@ -22,7 +22,7 @@ class App extends Component {
 
 	createQuestionsComponent() {
 		return this.state.questions.map((question) => 
-			<Question operand_1={question.operand_1 } 
+			<StageTwoQuestion operand_1={question.operand_1 }
 						  operand_2={question.operand_2 } 
 						  operation={question.operation }
 						  options={question.options } 

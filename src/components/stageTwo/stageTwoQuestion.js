@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import DecimalNumber from './decimalNumber';
-import Operator from './operator';
-import Statement from './statement';
-import AnswersOptions from './answersOptions';
+import DecimalNumber from '../decimalNumber';
+import Operator from '../operator';
+import Statement from '../statement';
+import AnswersOptions from '../answersOptions';
 
-class Question extends Component {
+class StageTwoQuestion extends Component {
 	render() {
 		return (
 			<div className="question">
@@ -20,4 +20,4 @@ class Question extends Component {
 	}
 }
 
-export default Question;
+export default StageTwoQuestion;
