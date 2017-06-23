@@ -1,6 +1,43 @@
 import operations from './utils/operations';
 
-const questions = [{
+const questionsStage1 = [{
+	operand_1: 6,
+	operand_2: 2,
+	result: 8,
+	answer: true,
+	options: [true, false],
+	operation: operations.plus
+},{
+	operand_1: 23,
+	operand_2: 13,
+	result: 37,
+	answer: false,
+	options: [true, false],
+	operation: operations.plus
+},{
+	operand_1: 74,
+	operand_2: 52,
+	result: 21,
+	answer: false,
+	options: [true, false],
+	operation: operations.minus
+},{
+	operand_1: 47,
+	operand_2: 24,
+	result: 23,
+	answer: true,
+	options: [true, false],
+	operation: operations.minus
+},{
+	operand_1: 3,
+	operand_2: 7,
+	result: 21,
+	answer: true,
+	options: [true, false],
+	operation: operations.multiply
+}];
+
+const questionsStage2 = [{
 	operand_1: 18,
 	operand_2: 2,
 	answer: 20,
@@ -30,6 +67,11 @@ const questions = [{
 	answer: 289,
 	options: [279, 294, 289, 303],
 	operation: operations.plus
-}]
+}];
 
-export { questions };
+const stages = {
+	1: questionsStage1,
+	2: questionsStage2
+}
+
+export default stages;
