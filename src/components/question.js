@@ -4,16 +4,7 @@ import Operator from './operator';
 import Statement from './statement';
 import AnswersOptions from './answersOptions';
 
-import '../css/app.css';
-
 class Question extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			options: []
-		};
-	}
-
 	render() {
 		return (
 			<div className="question">
