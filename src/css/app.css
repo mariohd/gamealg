@@ -1,6 +1,5 @@
 .question {
   width: 100%;
-  font-family: 'Amatic SC', cursive;
 }
 
 .question, .number, .operator {
@@ -58,4 +57,33 @@
 .answer.option:active {
   box-shadow: 0 1px #888888;
   transform: translateY(2px);
+}
+
+.statistics .results {
+  font-size: 3.5em;
+}
+
+.statistics {
+  text-align: center;
+}
+
+.statistics .stage {
+  display: inline-block;
+  font-size: 1.8em;
+  color: #47504D;
+  border: 1px solid #47504D;
+  padding: .5em;
+  margin: .5em;
+}
+
+.statistics .stage .index {
+  font-size: 1.5em;
+}
+
+.statistics .stage .true {
+  color: #68B06A;
+}
+
+.statistics .stage .false {
+  color: #CC4E70;
 }

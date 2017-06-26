@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import StageOneQuestion from './stageOne/stageOneQuestion';
-import StageTwoQuestion from './stageTwo/stageTwoQuestion';
+import Question from './stageOne/question';
+import Statistics from './statistics';
 import '../css/app.css';
 
 class App extends Component {
@@ -43,26 +43,19 @@ class App extends Component {
 	}
 
 	createQuestionsComponent() {
-		switch(this.state.stage) {
-			case 0:
-				return this.state.questions[0].map((question) => 
-					<StageOneQuestion operand_1={question.operand_1 }
-								  operand_2={question.operand_2 } 
-								  operation={question.operation }
-								  result={question.result }
-								  options={question.options } 
-								  onAnswerClicked={this.nextTurn.bind(this) } />
-				);
-			case 1:
-				return this.state.questions[1].map((question) => 
-					<StageTwoQuestion operand_1={question.operand_1 }
-								  operand_2={question.operand_2 } 
-								  operation={question.operation }
-								  options={question.options } 
-								  onAnswerClicked={this.nextTurn.bind(this) } />
-				);
+		let questions = this.state.questions[this.state.stage];
+		switch (true) {
+			case (this.state.stage < 2): 
+				return questions.map((q) => <Question operand_1={q.operand_1 }
+													  operand_2={q.operand_2 }
+													  operation={q.operation }
+													  result={q.result } 
+													  options={q.options } 
+													  onAnswerClicked={this.nextTurn.bind(this) } />);
 			default:
-				return [<h1>{JSON.stringify(this.state.history) }</h1>];
+				return [
+					<Statistics result={this.state.history} />
+				];
 		}
 	}
 

@@ -4,7 +4,7 @@ import DecimalNumber from '../decimalNumber';
 import Operator from '../operator';
 import AnswersOptions from '../answersOptions';
 
-class StageOneQuestion extends Component {
+class Question extends Component {
 	render() {
 		return (
 			<div className="question one">
@@ -22,4 +22,4 @@ class StageOneQuestion extends Component {
 	}
 }
 
-export default StageOneQuestion;
+export default Question;
