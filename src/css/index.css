@@ -4,3 +4,11 @@ body {
   font-family: sans-serif;
   background: #FDF6CA;
 }
+
+body .header {
+	text-align: center;
+	font-size: 6em;
+	color: black;
+	font-family: 'Amatic SC', cursive;
+	border-bottom: 1px dashed black;
+}

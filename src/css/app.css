@@ -10,12 +10,12 @@
 }
 
 .question .body {
-  margin-top: 2em;
+  margin-top: 1em;
   text-align: center;
 }
 
 .statement .text {
-  margin-top: 1em;
+  margin-top: .5em;
   text-align: center;
   font-size: 2.2em;
 }
@@ -36,14 +36,14 @@
 .answers.options {
   width: 50%;
   margin: auto;
-  margin-top: 2em;
+  margin-top: 1em;
 }
 
 .answer.option {
   display: inline-block;
-  margin: .5em;
+  margin: .2em;
   width: 30%;
-  padding: 1em;
+  padding: .75em;
   border-radius: .2em;
   border: 1px solid black;
   box-shadow: 2px 3px #888888;
