@@ -74,6 +74,43 @@ const questionsStage2 = [{
 	operation: operations.plus
 }];
 
-const stages = [questionsStage1, questionsStage2];
+const questionsStage3 = [{
+	operand_1: 20,
+	operand_2: 2,
+	result: '?',
+	answer: 22,
+	options: [22, 10, 20, 19],
+	operation: operations.plus
+},{
+	operand_1: 32,
+	operand_2: 9,
+	result: 41,
+	answer: true,
+	options: [true, false],
+	operation: operations.plus
+},{
+	operand_1: 20,
+	operand_2: 25,
+	result: '?',
+	answer: -5,
+	options: [0, -5, 45, -45],
+	operation: operations.minus
+},{
+	operand_1: 10,
+	operand_2: 78,
+	result: -68,
+	answer: true,
+	options: [true, false],
+	operation: operations.minus
+},{
+	operand_1: 22,
+	operand_2: 13,
+	result: '?',
+	answer: 286,
+	options: [279, 274, 286, 296],
+	operation: operations.multiply
+}];
+
+const stages = [questionsStage1, questionsStage2, questionsStage3];
 
 export default stages;
