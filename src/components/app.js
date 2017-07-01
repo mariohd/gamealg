@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Question from './stageOne/question';
+import Stage from './stage';
 import Statistics from './statistics';
 import '../css/app.css';
 
@@ -11,10 +11,9 @@ class App extends Component {
 
 	getInitialState(props) {
 		return {
-			turn: 0,
 			stage: 0,
 			ended: false,
-			questions: props.questions,
+			stages: props.stages.map((s, k) => this._toStage(this, s, k)),
 			history: []
 		};
 	}
@@ -23,67 +22,41 @@ class App extends Component {
 		this.setState(this.getInitialState(this.props));
 	}
 
-	nextTurn(answerClicked) {
-		const question = this.state.questions[this.state.stage][this.state.turn];
+	nextStage(stageHistory) {
+		let history = [...this.state.history, stageHistory];
 
-		let stage = this.state.stage;
-		let turn = this.state.turn;
-		let history = this.state.history;
-		let ended = this.state.ended;
-
-		if (history[this.state.stage] === undefined) {
-			history[this.state.stage] = [];
-		}
-
-		history[this.state.stage][this.state.turn] = answerClicked === question.answer;
-
-		if (this.state.turn + 1 === this.state.questions[this.state.stage].length) {
-			stage = stage + 1;
-			turn = 0;
-			if (stage >= this.state.questions.length) {
-				ended = true;
-			} else {
-				history[stage] = [];
-			}
+		if (this.state.stage + 1 === this.state.stages.length) {
+			this.setState({
+				ended: true,
+				history
+			});
 		} else {
-			turn += 1;
-		}
-
-
-		this.setState({
-			turn,
-			stage,
-			ended,
-			history
-		});
-	}
-
-	createQuestionsComponent() {
-		let questions = this.state.questions[this.state.stage];
-		switch (true) {
-			case (! this.state.ended): 
-				return questions.map((q) => <Question operand_1={q.operand_1 }
-													  operand_2={q.operand_2 }
-													  operation={q.operation }
-													  result={q.result } 
-													  options={q.options } 
-													  onAnswerClicked={this.nextTurn.bind(this) } />);
-			default:
-				return [
-					<Statistics result={this.state.history} />
-				];
+			this.setState({
+				stage: this.state.stage + 1,
+				history
+			});
 		}
 	}
 
 	render() {
-		let component = this.createQuestionsComponent()[this.state.turn];
-		let button = this.state.ended ? <div className="restart text-center" onClick={() => this.setInitialState() }>Recomeçar</div> : '';
+		let toRender;
+
+		if (this.state.ended) {
+			toRender = <Statistics result={this.state.history} />
+			// toRender = <div className="restart text-center" onClick={() => this.setInitialState() }>Recomeçar</div>;
+		} else {
+			toRender = this.state.stages[this.state.stage];
+		}
+
 		return (
 			<div className="board">
-				{component }
-				{button }
+				{ toRender }
 			</div>
 		);
+	}
+
+	_toStage(context, stage, key) {
+		return (<Stage questions={stage.questions } next={this.nextStage.bind(this) } key={key } />);
 	}
 }
 

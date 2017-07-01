@@ -11,7 +11,7 @@ Promise.all(stagesLoaded).then(responses => {
 	let parsedResponses = responses.map(r => r.json());
 
 	Promise.all(parsedResponses).then(stages => {
-		ReactDOM.render(<App questions={ stages.map(i => i.questions) }/>, document.getElementById('root'));
+		ReactDOM.render(<App stages={ stages }/>, document.getElementById('root'));
 		registerServiceWorker();
 	});
 });

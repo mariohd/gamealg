@@ -5,34 +5,49 @@ class Stage extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			this.turn = 0,
-			this.ended = false,
-			this.questions = props.questions.map(_toQuestion),
-			this.history = []
+			turn: 0,
+			questions: props.questions.map((q) => this._toQuestion(this, q)),
+			history: []
 		};
 	}
 
 	nextTurn(answer) {
-		alert(1);
-	}
+		const question = this.props.questions[this.state.turn];
 
-	render() {
-		if (this.state.ended) {
-			return (<h1>acabou, como eu passo agora?</h1>);
+		let turn = this.state.turn;
+		turn += 1;
+
+		if (turn >= this.state.questions.length) {
+			let history = [...this.state.history, question.answer === answer];
+			this.setState({
+				history
+			});
+			this.props.next(history);
 		} else {
-			return (
-				this.state.questions[this.state.turn]
-			);
+			this.setState({
+				turn,
+				history: [...this.state.history, question.answer === answer]
+			});
 		}
 	}
 
-	_toQuestion(question) {
+	render() {
+		return (
+			this.state.questions[this.state.turn]
+		);
+	}
+
+	getHistory() {
+		return this.state.history;
+	}
+
+	_toQuestion(context, question) {
 		return <Question operand_1={question.operand_1 }
 			operand_2={question.operand_2 }
 			operation={question.operation }
 			result={question.result } 
 			options={question.options } 
-			onAnswerClicked={this.nextTurn.bind(this) } />
+			onAnswerClicked={ context.nextTurn.bind(context) } />
 	}
 }
 
