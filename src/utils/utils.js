@@ -21,4 +21,11 @@ const randomValueBasedOn = (answer) => {
 	}
 }
 
-export default { randomInt, randomValueBasedOn };
+const i18n = (value) => {
+	if (typeof value === "boolean") {
+		return value ? "Verdadeiro" : "Falso";
+	}
+	return value;
+}
+
+export { randomInt, randomValueBasedOn, i18n };
