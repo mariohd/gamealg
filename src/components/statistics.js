@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
 
 class Statistics extends Component {
+	constructor(props) {
+		super(props);
+		this.state = { showResults: false };
+	}
+
+	toggleViewResults() {
+		this.setState({
+			showResults: !this.state.showResults
+		})
+	}
+
 	render() {
 		const renderStageStatistics = (stage, index) => {
 			return [<div key="index" className="index">Fase {index + 1}</div>, 
@@ -17,8 +28,14 @@ class Statistics extends Component {
 
 		return (
 			<div className="statistics">
-				<div className="results">Resultados</div>
-				{stages }
+				<div className="thanks">
+					<div>Fim</div>
+					<div>Obrigado por participar</div>
+				</div>
+				<div>
+					<div className="results" onClick={ () => this.toggleViewResults() }>{this.state.showResults ? "Esconder resultados": "Exibir resultados"}</div>
+					{ this.state.showResults ? <span id="stage-results">{stages }</span> : '' }
+				</div>
 			</div>
 		);
 	}

@@ -63,8 +63,14 @@
   transform: translateY(2px);
 }
 
-.statistics .results {
+.statistics .thanks {
   font-size: 3.5em;
+}
+
+.statistics .results {
+  font-size: 1.5em;
+  margin-bottom: .5em;
+  cursor: pointer;
 }
 
 .statistics {
