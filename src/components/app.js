@@ -39,24 +39,24 @@ class App extends Component {
 	}
 
 	render() {
-		let toRender;
+		let toRender = [];
 
 		if (this.state.ended) {
-			toRender = <Statistics result={this.state.history} />
-			// toRender = <div className="restart text-center" onClick={() => this.setInitialState() }>Recomeçar</div>;
+			toRender.push(<Statistics key={0} result={this.state.history} />)
+			toRender.push(<div key={1} className="button restart text-center" onClick={() => this.setInitialState() }>Recomeçar</div>);
 		} else {
-			toRender = this.state.stages[this.state.stage];
+			toRender.push(this.state.stages[this.state.stage]);
 		}
 
 		return (
-			<div className="board">
+			<div className="board">	
 				{ toRender }
 			</div>
 		);
 	}
 
 	_toStage(context, stage, key) {
-		return (<Stage questions={stage.questions } next={this.nextStage.bind(this) } key={key } />);
+		return (<Stage questions={stage.questions } intro={stage.intro} next={this.nextStage.bind(this) } key={key } />);
 	}
 }
 

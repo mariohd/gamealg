@@ -5,6 +5,7 @@ class Stage extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			initiated: false,
 			turn: 0,
 			questions: props.questions.map((q) => this._toQuestion(this, q)),
 			history: []
@@ -31,10 +32,27 @@ class Stage extends Component {
 		}
 	}
 
+	onClickStart() {
+		this.setState({
+			initiated: true
+		});
+	}
+
 	render() {
-		return (
-			this.state.questions[this.state.turn]
-		);
+		if (this.state.initiated) {
+			return (
+				this.state.questions[this.state.turn]
+			)
+		} else {
+			return (
+				<div className="stage text-center" >
+					<div dangerouslySetInnerHTML={{ __html: this.props.intro }}></div>
+					<div className="start">
+						<div className="button" onClick={() => this.onClickStart() }>Iniciar</div>
+					</div>
+				</div>
+			)
+		}
 	}
 
 	getHistory() {

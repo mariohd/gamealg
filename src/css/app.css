@@ -53,7 +53,7 @@
   user-select: none;
 }
 
-.answer.option:hover, .restart:hover {
+.answer.option:hover, .button:hover {
   cursor: pointer;
   background: #E4DDB1;
 }
@@ -92,7 +92,7 @@
   color: #CC4E70;
 }
 
-.restart {
+.button {
   display: block;
   margin: auto;
   width: 20%;
@@ -102,4 +102,15 @@
   border: 1px solid black;
   box-shadow: 2px 3px #888888;
   user-select: none;
+}
+
+.stage-header {
+  padding: .5em;
+  font-size: 5em;
+}
+
+.stage-header .level {
+  font-size: .60em;
+  display: inline-block;
+  margin-bottom: .55em;
 }
