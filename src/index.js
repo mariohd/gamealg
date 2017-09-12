@@ -2,16 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app';
 import registerServiceWorker from './registerServiceWorker';
+import Parse from './database/parseConnection';
+import Stage from './database/stage';
+// import './database/seed';
 
-let stagesLoaded = ['https://quarkbackend.com/getfile/mariohd/stageone',
-					'https://quarkbackend.com/getfile/mariohd/stagetwo',
-					'https://quarkbackend.com/getfile/mariohd/stagethree'].map(stageURL => fetch(stageURL));
+var parseStage = new Stage();
+var query = new Parse.Query(parseStage);
 
-Promise.all(stagesLoaded).then(responses => {
-	let parsedResponses = responses.map(r => r.json());
+query.find({
+	success: function(stages) {
+		let parsedStages = stages.map(stage => {
+			let intro = stage.get('intro');
+			let questions = stage.get('questions');
+			let level = stage.get('level');
+			return {intro, questions, level};
+		});
 
-	Promise.all(parsedResponses).then(stages => {
-		ReactDOM.render(<App stages={ stages }/>, document.getElementById('root'));
+		ReactDOM.render(<App stages={ parsedStages }/>, document.getElementById('root'));
 		registerServiceWorker();
-	});
+	},
+	error: function(object, error) {
+		console.error(object, error);
+	}
 });
