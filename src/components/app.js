@@ -11,6 +11,8 @@ class App extends Component {
 
 	getInitialState(props) {
 		return {
+			start: +new Date(),
+			lastStageStartedAt: +new Date(),
 			stage: 0,
 			ended: false,
 			stages: props.stages.map((s, k) => this._toStage(this, s, k)),
@@ -23,15 +25,19 @@ class App extends Component {
 	}
 
 	nextStage(stageHistory) {
+		stageHistory.elapsedTime = (+new Date() - this.state.lastStageStartedAt);
 		let history = [...this.state.history, stageHistory];
 
 		if (this.state.stage + 1 === this.state.stages.length) {
+			history.elapsedTime = (+new Date() - this.state.start);
+
 			this.setState({
 				ended: true,
 				history
 			});
 		} else {
 			this.setState({
+				lastStageStartedAt: +new Date(),
 				stage: this.state.stage + 1,
 				history
 			});

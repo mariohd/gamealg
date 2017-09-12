@@ -19,18 +19,15 @@ class Stage extends Component {
 
 		let turn = this.state.turn;
 		turn += 1;
+		let history = [...this.state.history, question.answer === answer];
+
+		this.setState({
+			turn,
+			history,
+		});
 
 		if (turn >= this.state.questions.length) {
-			let history = [...this.state.history, question.answer === answer];
-			this.setState({
-				history
-			});
 			this.props.next(history);
-		} else {
-			this.setState({
-				turn,
-				history: [...this.state.history, question.answer === answer]
-			});
 		}
 	}
 
