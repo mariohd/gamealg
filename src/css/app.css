@@ -120,3 +120,45 @@
   display: inline-block;
   margin-bottom: .55em;
 }
+
+#balance-img {
+  transform: scale(1.4);
+  position: relative;
+  top: -15px;
+}
+
+.balance-plate {
+  display: inline-block;
+  width: 50%;
+}
+
+.balance-plate.left {
+  text-align: right;
+}
+
+.balance-plate.right {
+  text-align: left;
+}
+
+.box {
+  padding: .5em;
+  background: #cacaca;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: .2em;
+  width: 8%;
+  display: inline-block;
+  text-align: center;
+}
+
+.balance-plate.left .box:last-of-type {
+  margin-right: 2.5em;
+}
+
+.balance-plate.right .box:first-of-type {
+  margin-left: 2.5em;
+}
+
+.balance {
+  background-image: "assets/balanca.png";
+}

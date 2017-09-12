@@ -15,7 +15,8 @@ query.find({
 			let intro = stage.get('intro');
 			let questions = stage.get('questions');
 			let level = stage.get('level');
-			return {intro, questions, level};
+            let type = stage.get('type');
+			return {intro, questions, level, type};
 		}).sort((a, b) => {
 			return a.level > b.level;
 		});

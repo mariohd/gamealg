@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import Question from './stageOne/question';
+import Question from './qa/question';
+import BalanceQuestion from './balance/question';
+
 
 class Stage extends Component {
 	constructor(props) {
@@ -60,13 +62,24 @@ class Stage extends Component {
 	}
 
 	_toQuestion(context, question) {
-		return <Question text={question.statement}
-			operand_1={question.operand_1 }
-			operand_2={question.operand_2 }
-			operation={question.operation }
-			result={question.result } 
-			options={question.options } 
-			onAnswerClicked={ context.nextTurn.bind(context) } />
+		switch(this.props.type) {
+			case "QA":
+				return <Question text={question.statement}
+					operand_1={question.operand_1 }
+					operand_2={question.operand_2 }
+					operation={question.operation }
+					result={question.result } 
+					options={question.options } 
+					onAnswerClicked={ context.nextTurn.bind(context) } />
+			case "BALANCE":
+				return <BalanceQuestion text={question.statement}
+					left={question.left }
+					right={question.right }
+					options={question.options } 
+					onAnswerClicked={ context.nextTurn.bind(context) } />
+			default:
+				return null
+		}
 	}
 }
 

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Statement from '../statement';
-import DecimalNumber from '../decimalNumber';
-import Operator from '../operator';
-import AnswersOptions from '../answersOptions';
+import DecimalNumber from './decimalNumber';
+import Operator from './operator';
+import AnswersOptions from './answersOptions';
 
 class Question extends Component {
 	render() {

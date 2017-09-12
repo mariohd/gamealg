@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { i18n } from '../utils/utils';
+import { i18n } from '../../utils/utils';
 
 
 class AnswerOption extends Component {

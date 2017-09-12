@@ -56,7 +56,7 @@ class App extends Component {
 	}
 
 	_toStage(context, stage, key) {
-		return (<Stage questions={stage.questions } intro={stage.intro} next={this.nextStage.bind(this) } key={key } />);
+		return (<Stage type={stage.type || "QA"} questions={stage.questions } intro={stage.intro} next={this.nextStage.bind(this) } key={key } />);
 	}
 }
 

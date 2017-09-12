@@ -1,0 +1,26 @@
+<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" width="383.4" height="187.7" version="1.1">
+   <style>
+      .s0 {fill:#9f1413; stroke-linecap:round; stroke-linejoin:round; stroke:#000;}
+      .s1 {fill:#9f1413; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke:#000;}
+      .s2 {fill:#5F0000; stroke-linecap:round; stroke-linejoin:round; stroke:#5F0000;}
+      .s3 {fill:rgba(100, 104, 104, 0.25);stroke-linecap:round;stroke-linejoin:round;stroke:#ddd}
+      .s4 {fill:#FFFF66;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.37;stroke:#000}
+   </style>
+   <title>Balance</title>
+   <g transform="translate(-157.69935,-468.3491)">
+      <path d="m243.8 546.1 202.7 0.2-0.8 11.8c-125 22.6-143.6 3.6-203.2 0.6z" class="s2"/> <!-- bracos -->
+      <path d="m334.2 481.7-7.1 113.7 44 2.1-7.6-116.5c-5.1-16.6-23.5-14.7-29.3 0.7z" class="s0"/> <!-- viga -->
+      <path d="m461.6 566.7-0.2 24.6 9.8 0-0.9-24z" class="s0"/> <!-- pino direito -->
+      <path d="m190.3 631.3 0 19.8 320.3 0 0.9-18.8z" class="s3"/> <!-- sombra -->
+      <path d="m210.7 591.2-17.4 25.1-11.6 6.7 0.7 31.3 16.4 0.5 10.4-11.3 277.9-0.2 9.4 11.8 19.9 0 0.7-31.9-8.9-4.4-13.1-26.6z" class="s1"/> <!-- base -->
+      <path d="m443.7 534.8 0.9 27.9c-0.3 3.7 1.1 5.6 4.3 5.6l32-0.2c2.9-0.4 4.8-1.7 5.1-4.7l0.1-28.6z" class="s0"/> <!-- braco direito -->
+      <path d="m390.6 506.9 0.1 11.1 12.4 16 122.6 0.1 14-15.9 0.4-11.3z" class="s4"/> <!-- prato direito -->
+      <path d="m214.8 534.8 0 29c0.2 2.4 1.3 4.8 4.7 4.3l33.6-0.3c2.6 0 4-1.3 4-4l0.1-29zM231.8 568.1l0.5 22.4 10 0-0.5-22.4zM338.9 484.1l-2 31.8 24.6 0-2.2-32.7c-5-15.6-19.2-7.3-20.5 0.9zM183.2 622l334.4 0.7" class="s0"/> <!-- braco esquerdo -->
+      <path d="m345.9 515.7 2.3-28 2.2 0 2.5 28z" class="s4"/> <!-- pino central -->
+      <path d="m361.7 557.1c0 6.1-5.1 11-11.3 11-6.3 0-11.3-4.9-11.3-11 0-6.1 5.1-11 11.3-11 6.3 0 11.3 4.9 11.3 11z" transform="matrix(0.72762175,0,0,0.72727273,94.548414,151.01318)" class="s4"/> <!-- botao central -->
+      <path d="m390 518.2 148.8 0" class="s0"/> <!-- linha do prato direito -->
+      <path d="m216 536 0 5.6 39.4 0 0.1-5.3zM445.1 536l0 5.6 39.7 0 0.1-5.3z" class="s2"/> <!-- sombra dos pratos -->
+      <path d="m158.8 506.9 0.1 11.1 12.4 16 122.6 0.1 14-15.9 0.4-11.3z" class="s4"/> <!-- prato esquerdo -->
+      <path d="m158.2 518.2 148.8 0" class="s0"/> <!-- linha prato esquerdo -->
+   </g>
+</svg>
