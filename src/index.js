@@ -16,6 +16,8 @@ query.find({
 			let questions = stage.get('questions');
 			let level = stage.get('level');
 			return {intro, questions, level};
+		}).sort((a, b) => {
+			return a.level > b.level;
 		});
 
 		ReactDOM.render(<App stages={ parsedStages }/>, document.getElementById('root'));

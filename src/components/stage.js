@@ -42,7 +42,8 @@ class Stage extends Component {
 	}
 
 	_toQuestion(context, question) {
-		return <Question operand_1={question.operand_1 }
+		return <Question text={question.statement}
+			operand_1={question.operand_1 }
 			operand_2={question.operand_2 }
 			operation={question.operation }
 			result={question.result } 

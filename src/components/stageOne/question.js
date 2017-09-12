@@ -8,7 +8,7 @@ class Question extends Component {
 	render() {
 		return (
 			<div className="question one">
-				<Statement text="Responda sobre a afirmação abaixo" />
+				<Statement text={this.props.text} />
 				<div className="body">
 					<DecimalNumber value={this.props.operand_1 } />
 					<Operator value={this.props.operation.symbol } />
