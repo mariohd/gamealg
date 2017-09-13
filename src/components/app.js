@@ -73,7 +73,7 @@ class App extends Component {
 
 		return (
 			<div className="board">
-				<input id="environment" type="hidden" value={process.env.ENV} />
+				<input id="environment" type="hidden" value={process.env.NODE_ENV} />
 				{ toRender }
 			</div>
 		);

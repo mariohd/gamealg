@@ -28,8 +28,8 @@ class ResultDAO extends Component {
 				this.props.onFinish();
 			},
 			error: (obj, err) => {
-				this.updateStep(err.code);
-				console.log(`Failed to create new object, with error code: ${err.code}`);
+				this.updateStep(`${err.code}: ${err.message}`);
+				console.log(`Failed to create new object, with error code: ${err.code} - ${err.message}`);
 			}
 		});
 	}
@@ -47,7 +47,7 @@ class ResultDAO extends Component {
 				message = "Salvo com sucesso";
 				break;
 			default:
-				message = `Algo deu errado! Step: ${this.state.step}`;
+				message = `Algo deu errado! ${this.state.step}`;
 		}
 		return (
 			<div className="statement text-center">
