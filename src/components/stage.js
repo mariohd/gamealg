@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Question from './qa/question';
 import BalanceQuestion from './balance/question';
 
-
 class Stage extends Component {
 	constructor(props) {
 		super(props);

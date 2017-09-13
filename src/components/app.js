@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Stage from './stage';
 import Statistics from './statistics';
+import ResultDAO from './result';
 import '../css/app.css';
 
 class App extends Component {
@@ -13,8 +14,8 @@ class App extends Component {
 		return {
 			start: +new Date(),
 			lastStageStartedAt: +new Date(),
+			step: 'running',
 			stage: 0,
-			ended: false,
 			stages: props.stages.map((s, k) => this._toStage(this, s, k)),
 			history: []
 		};
@@ -32,9 +33,10 @@ class App extends Component {
 			history.elapsedTime = (+new Date() - this.state.start);
 
 			this.setState({
-				ended: true,
+				step: 'saving',
 				history
 			});
+
 		} else {
 			this.setState({
 				lastStageStartedAt: +new Date(),
@@ -44,18 +46,34 @@ class App extends Component {
 		}
 	}
 
+	saved() {
+		this.setState({
+			step: 'ended'
+		});
+	}
+
 	render() {
 		let toRender = [];
-
-		if (this.state.ended) {
-			toRender.push(<Statistics key={0} result={this.state.history} />)
-			toRender.push(<div key={1} className="button restart text-center" onClick={() => this.setInitialState() }>Recomeçar</div>);
-		} else {
-			toRender.push(this.state.stages[this.state.stage]);
+		switch (this.state.step) {
+			case 'saving':
+				toRender.push([<ResultDAO history={this.state.history} onFinish={() => this.saved() } />])
+				break;
+			case 'ended':
+				toRender.push(
+					(<div key={0} className="thanks text-center">
+						<div>Fim</div>
+						<div>Obrigado por participar</div>
+					</div>));
+				toRender.push(<Statistics key={1} result={this.state.history} />)
+				toRender.push(<div key={2} className="button restart text-center" onClick={() => this.setInitialState() }>Recomeçar</div>);
+				break;
+			default:
+				toRender.push(this.state.stages[this.state.stage]);
 		}
 
 		return (
-			<div className="board">	
+			<div className="board">
+				<input id="environment" type="hidden" value={process.env.ENV} />
 				{ toRender }
 			</div>
 		);

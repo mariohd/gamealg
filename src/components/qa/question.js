@@ -7,9 +7,9 @@ import AnswersOptions from './answersOptions';
 class Question extends Component {
 	render() {
 		return (
-			<div className="question one">
+			<div className="question">
 				<Statement text={this.props.text} />
-				<div className="body">
+				<div className="body text-center">
 					<DecimalNumber value={this.props.operand_1 } />
 					<Operator value={this.props.operation.symbol } />
 					<DecimalNumber value={this.props.operand_2 } />

@@ -6,9 +6,9 @@ import AnswersOptions from '../qa/answersOptions';
 class BalanceQuestion extends Component {
 	render() {
 		return (
-			<div className="question balance one">
+			<div className="question balance">
 				<Statement text={this.props.text} />
-				<div className="body">
+				<div className="body text-center">
 					<BalancePlate placement="left" values={this.props.left} />
 					<BalancePlate placement="right" values={this.props.right} />
 					<img id="balance-img" src="assets/img/balance.svg" alt="balance" />

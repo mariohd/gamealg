@@ -27,11 +27,7 @@ class Statistics extends Component {
 			.map((s, index) => <div key={index } className="stage">{s}</div>);
 
 		return (
-			<div className="statistics">
-				<div className="thanks">
-					<div>Fim</div>
-					<div>Obrigado por participar</div>
-				</div>
+			<div className="statistics text-center">
 				<div>
 					<div className="results" onClick={ () => this.toggleViewResults() }>{this.state.showResults ? "Esconder resultados": "Exibir resultados"}</div>
 					{ this.state.showResults ? <span id="stage-results">{stages }</span> : '' }
