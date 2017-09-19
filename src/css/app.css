@@ -151,3 +151,7 @@
 .balance {
   background-image: "assets/balanca.png";
 }
+
+.swal-title, .swal-text {
+  font-size: xx-large;
+}

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Question from './qa/question';
 import BalanceQuestion from './balance/question';
+import swal from 'sweetalert';
+import { i18n } from '../utils/utils';
 
 class Stage extends Component {
 	constructor(props) {
@@ -15,6 +17,12 @@ class Stage extends Component {
 
 	nextTurn(answer) {
 		const question = this.props.questions[this.state.turn];
+
+		if (question.answer === answer) {
+			swal("Parabéns!", `A opção ${i18n(answer)} é a solução correta.`, "success");
+		} else {
+			swal("Esta resposta não parece que é a correta", `A opção ${i18n(answer)} é a solução correta.`, "error");
+		}
 
 		let turn = this.state.turn;
 		turn += 1;
