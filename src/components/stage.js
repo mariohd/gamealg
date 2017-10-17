@@ -21,7 +21,7 @@ class Stage extends Component {
 		if (question.answer === answer) {
 			swal("Parabéns!", `A opção ${i18n(answer)} é a solução correta.`, "success");
 		} else {
-			swal("Esta resposta não parece que é a correta", `A opção ${i18n(answer)} é a solução correta.`, "error");
+			swal("Esta resposta não parece que é a correta", `A opção ${i18n(question.answer)} é a solução correta.`, "error");
 		}
 
 		let turn = this.state.turn;
