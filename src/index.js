@@ -18,7 +18,7 @@ query.find({
             let type = stage.get('type');
 			return {intro, questions, level, type};
 		}).sort((a, b) => {
-			return a.level > b.level;
+			return a.level > b.level ? 1 : -1;
 		});
 
 		ReactDOM.render(<App stages={ parsedStages }/>, document.getElementById('root'));
